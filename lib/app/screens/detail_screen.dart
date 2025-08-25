@@ -1,5 +1,3 @@
-// Lokasi file: lib/app/views/detail_screen.dart
-
 import 'package:coffee_app/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -40,7 +38,6 @@ class DetailScreen extends GetView<DetailController> {
     );
   }
 
-  /// ✅ AppBar
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
       backgroundColor: Colors.white,
@@ -66,7 +63,6 @@ class DetailScreen extends GetView<DetailController> {
     );
   }
 
-  /// ✅ Gambar Produk
   Widget _buildImage(String imageUrl) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(16),
@@ -79,7 +75,6 @@ class DetailScreen extends GetView<DetailController> {
     );
   }
 
-  /// ✅ Nama, Info & Rating
   Widget _buildTitleAndInfo(Map<String, String> coffee) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -111,7 +106,7 @@ class DetailScreen extends GetView<DetailController> {
             ),
             const SizedBox(width: 4),
             Text(
-              '(230)', // Jumlah review hardcode
+              '(230)',
               style: GoogleFonts.sora(color: Colors.grey[600], fontSize: 12),
             ),
             const Spacer(),
@@ -142,7 +137,6 @@ class DetailScreen extends GetView<DetailController> {
     );
   }
 
-  /// ✅ Deskripsi Produk
   Widget _buildDescription() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -183,7 +177,6 @@ class DetailScreen extends GetView<DetailController> {
     );
   }
 
-  /// ✅ Pilihan Ukuran
   Widget _buildSizeSelection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -239,7 +232,6 @@ class DetailScreen extends GetView<DetailController> {
     });
   }
 
-  /// ✅ Tombol Beli
   Widget _buildBuyButton() {
     return Container(
       padding: const EdgeInsets.fromLTRB(24, 12, 24, 24),
@@ -257,7 +249,6 @@ class DetailScreen extends GetView<DetailController> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          /// Harga
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
@@ -275,7 +266,6 @@ class DetailScreen extends GetView<DetailController> {
             ],
           ),
 
-          /// Tombol Buy
           ElevatedButton(
             onPressed: () {
               Get.toNamed(

@@ -38,7 +38,6 @@ class AppPages {
       binding: OrderBinding(),
     ),
     GetPage(
-      // <-- TAMBAHKAN BLOK INI
       name: Routes.DELIVERY,
       page: () => const DeliveryScreen(),
       binding: DeliveryBinding(),

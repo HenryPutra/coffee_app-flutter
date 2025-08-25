@@ -18,23 +18,19 @@ class SplashScreen extends GetView<SplashController> {
           image: DecorationImage(
             image: AssetImage('assets/images/coffee_background.png'),
             fit: BoxFit.cover,
-            // Mengatur posisi gambar agar lebih ke atas
             alignment: Alignment(0.0, -0.3),
           ),
         ),
         child: Stack(
           children: [
-            // Additional floating coffee beans effect
             ...List.generate(15, (index) => _buildFloatingCoffeeBean(index)),
 
-            // Main content
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 children: [
                   const Spacer(flex: 4),
 
-                  // Title
                   Text(
                     'Fall in Love with\nCoffee in Blissful\nDelight!',
                     textAlign: TextAlign.center,
@@ -53,7 +49,6 @@ class SplashScreen extends GetView<SplashController> {
 
                   const SizedBox(height: 20),
 
-                  // Subtitle
                   Text(
                     'Welcome to our cozy coffee corner, where\nevery cup is a delightful for you.',
                     textAlign: TextAlign.center,
@@ -71,7 +66,6 @@ class SplashScreen extends GetView<SplashController> {
 
                   const Spacer(flex: 1),
 
-                  // Get Started Button
                   _buildGetStartedButton(context),
 
                   const SizedBox(height: 50),
@@ -99,11 +93,11 @@ class SplashScreen extends GetView<SplashController> {
         builder: (context, value, child) {
           return Transform.translate(
             offset: Offset(
-              Math.sin(value * 2 * Math.pi) * 10, // Horizontal float
-              (value * 20) - 10, // Vertical float
+              Math.sin(value * 2 * Math.pi) * 10,
+              (value * 20) - 10,
             ),
             child: Transform.rotate(
-              angle: value * Math.pi, // Half rotation
+              angle: value * Math.pi,
               child: Opacity(
                 opacity: 0.4 + (value * 0.3),
                 child: Container(

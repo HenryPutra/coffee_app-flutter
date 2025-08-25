@@ -1,4 +1,3 @@
-// Lokasi file: lib/app/views/home_screen.dart
 import 'package:coffee_app/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,9 +17,7 @@ class HomeScreen extends GetView<HomeController> {
           SliverToBoxAdapter(child: _buildPromoCard()),
           SliverToBoxAdapter(child: _buildCategoryTabs()),
           _buildCoffeeGrid(),
-          SliverToBoxAdapter(
-            child: const SizedBox(height: 24), // Extra space at the bottom
-          ),
+          SliverToBoxAdapter(child: const SizedBox(height: 24)),
         ],
       ),
       bottomNavigationBar: _buildBottomNavBar(),
@@ -235,7 +232,6 @@ class HomeScreen extends GetView<HomeController> {
     );
   }
 
-  // Bagian Grid Menu yang Responsif dan Rapih
   Widget _buildCoffeeGrid() {
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -244,8 +240,7 @@ class HomeScreen extends GetView<HomeController> {
           crossAxisCount: 2,
           crossAxisSpacing: 16,
           mainAxisSpacing: 16,
-          childAspectRatio:
-              0.7, // Rasio aspek diatur untuk layout yang proporsional
+          childAspectRatio: 0.7,
         ),
         itemCount: controller.coffeeList.length,
         itemBuilder: (context, index) {
@@ -256,7 +251,6 @@ class HomeScreen extends GetView<HomeController> {
     );
   }
 
-  // Bagian Kartu Kopi dengan Gambar Dinamis dan Tata Letak Rapi
   Widget _buildCoffeeCard({required Map<String, String> coffee}) {
     final String image = coffee['image']!;
     final String name = coffee['name']!;
@@ -286,7 +280,6 @@ class HomeScreen extends GetView<HomeController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // Gambar dengan sudut melingkar
             Expanded(
               flex: 3,
               child: Stack(
@@ -337,13 +330,11 @@ class HomeScreen extends GetView<HomeController> {
                 ],
               ),
             ),
-            // Detail Teks dan Tombol
             Padding(
               padding: const EdgeInsets.all(12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize:
-                    MainAxisSize.min, // Penting: ini akan mencegah luapan!
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     name,
@@ -410,7 +401,6 @@ class HomeScreen extends GetView<HomeController> {
     );
   }
 
-  // Bagian Bottom Navigation Bar (4 ikon, Home di kiri, tanpa Profile)
   Widget _buildBottomNavBar() {
     return Container(
       decoration: BoxDecoration(
@@ -427,7 +417,6 @@ class HomeScreen extends GetView<HomeController> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          // 1. HOME (SELECTED)
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -439,7 +428,6 @@ class HomeScreen extends GetView<HomeController> {
                 ),
                 onPressed: () {},
               ),
-              // Indikator kecil
               Container(
                 width: 6,
                 height: 6,
@@ -451,7 +439,6 @@ class HomeScreen extends GetView<HomeController> {
             ],
           ),
 
-          // 2. FAVORIT
           IconButton(
             icon: Icon(
               Icons.favorite_border,
@@ -461,7 +448,6 @@ class HomeScreen extends GetView<HomeController> {
             onPressed: () {},
           ),
 
-          // 3. MARKET (SHOPPING BAG)
           IconButton(
             icon: Icon(
               Icons.shopping_bag_outlined,
@@ -471,7 +457,6 @@ class HomeScreen extends GetView<HomeController> {
             onPressed: () {},
           ),
 
-          // 4. NOTIFIKASI
           IconButton(
             icon: Icon(
               Icons.notifications_none,

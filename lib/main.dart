@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
       title: 'Coffee App',
       theme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.SPLASH, // Ganti dari home ke initialRoute
-      getPages: AppPages.routes, // Pastikan AppPages sudah punya SplashBinding
+      initialRoute: Routes.SPLASH,
+      getPages: AppPages.routes,
     );
   }
 }

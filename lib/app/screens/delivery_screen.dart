@@ -1,4 +1,3 @@
-// Lokasi file: lib/app/views/delivery_screen.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,15 +11,13 @@ class DeliveryScreen extends GetView<DeliveryController> {
     return Scaffold(
       body: Stack(
         children: [
-          // Latar belakang peta statis
           Image.asset(
-            'assets/images/map_background.png', // GANTI DENGAN GAMBAR PETA ANDA
+            'assets/images/map_background.png',
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
           ),
 
-          // Custom painter untuk menggambar rute dan pin
           CustomPaint(
             painter: MapPainter(
               routePoints: controller.routePoints,
@@ -186,9 +183,7 @@ class DeliveryScreen extends GetView<DeliveryController> {
       children: [
         const CircleAvatar(
           radius: 27,
-          backgroundImage: AssetImage(
-            'assets/images/courier_profile.png',
-          ), // GANTI GAMBAR
+          backgroundImage: AssetImage('assets/images/courier_profile.png'),
         ),
         const SizedBox(width: 12),
         Expanded(
@@ -225,7 +220,6 @@ class DeliveryScreen extends GetView<DeliveryController> {
   }
 }
 
-// Custom Painter to draw the route and pins on the map image
 class MapPainter extends CustomPainter {
   final List<Offset> routePoints;
   final Offset courierPosition;
@@ -239,14 +233,12 @@ class MapPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // Paint for the route line
     final routePaint = Paint()
       ..color = const Color(0xFFC67C4E)
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
 
-    // Draw the route
     final path = Path();
     if (routePoints.isNotEmpty) {
       path.moveTo(routePoints.first.dx, routePoints.first.dy);
@@ -256,11 +248,9 @@ class MapPainter extends CustomPainter {
     }
     canvas.drawPath(path, routePaint);
 
-    // Paint for the pins
     final pinPaint = Paint()..color = const Color(0xFFC67C4E);
     final whitePaint = Paint()..color = Colors.white;
 
-    // Draw destination pin (house icon)
     canvas.drawCircle(destinationPosition, 12, pinPaint);
     canvas.drawCircle(destinationPosition, 9, whitePaint);
     const IconData homeIcon = Icons.home_filled;
@@ -279,7 +269,6 @@ class MapPainter extends CustomPainter {
       Offset(destinationPosition.dx - 7, destinationPosition.dy - 7),
     );
 
-    // Draw courier pin
     canvas.drawCircle(courierPosition, 8, pinPaint);
     canvas.drawCircle(courierPosition, 5, whitePaint);
   }
