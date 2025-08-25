@@ -4,7 +4,7 @@ Ini adalah proyek Flutter yang dikembangkan sebagai tugas onboarding untuk memah
 Cara Instalasi Project
 Clone repositori:
 
-git clone https://github.com/nama-pengguna-anda/coffee_app.git
+git clone https://github.com/nama-pengguna-anda/coffee_app-flutter.git
 
 (Ganti URL dengan URL repositori Anda.)
 
