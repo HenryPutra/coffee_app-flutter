@@ -10,7 +10,7 @@ git clone https://github.com/nama-pengguna-anda/coffee_app-flutter.git
 
 Masuk ke direktori proyek:
 
-cd coffee_app
+cd coffee_app-flutter
 
 Ambil dependensi:
 
